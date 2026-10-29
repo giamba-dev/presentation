@@ -504,7 +504,7 @@ pre.code code {
 .cue { flex: none; width: 30px; height: 0; border-top: 3px solid var(--flow); border-radius: 2px; }
 .cue.gap { border-top-color: var(--warn); }
 
-/* ---------- Slide 5: loops and the hop limit ---------- */
+/* ---------- Slide 6: loops and the hop limit ---------- */
 .loop-grid { margin-top: 24px; display: grid; grid-template-columns: 520px minmax(0, 1fr); gap: 24px; }
 .loop-card .card-head h2 { font-size: 22px; }
 .badge-step.bad { border-color: var(--bad); color: var(--bad); }
@@ -597,7 +597,7 @@ pre.code code {
 .chain:not(.is-in) .st, .chain:not(.is-in) .hop-seg { opacity: 0.25; transition-delay: 0s; }
 .chain:not(.is-in) .st { transform: scale(0.8); }
 
-/* ---------- Slide 7: cap subscribers now, chunk the delivery later ---------- */
+/* ---------- Slide 8: cap subscribers now, chunk the delivery later ---------- */
 .lease, .uploads, .order {
   margin-top: 24px;
   padding: 18px 26px 16px;
@@ -722,7 +722,7 @@ pre.code code {
 .deploy-fail.long .msg { font-size: 13px; }
 .deploy-fail .msg em { display: block; margin-top: 3px; font: 14px/1.3 var(--font-body); color: var(--muted); }
 
-/* ---------- Slide 8: payload cap now, one shared envelope later ---------- */
+/* ---------- Slide 9: payload cap now, one shared envelope later ---------- */
 /* One row per payload size: label, the uploads it causes, total */
 .up-row { display: grid; grid-template-columns: 180px minmax(0, 1fr) 270px; column-gap: 20px; align-items: start; }
 .uploads .chain-head + .up-row { margin-top: 22px; }
@@ -756,8 +756,8 @@ pre.code code {
 .up-compare { margin: 16px 0 0; display: flex; justify-content: center; align-items: center; gap: 12px; }
 .up-compare .arrow { font: 16px/1 var(--font-mono); color: var(--faint); }
 
-/* ---------- Slide 4: fair delivery between environments ---------- */
-/* The rows reuse the .up-row grid of slide 8: label, a line of deliveries in order, result */
+/* ---------- Slide 5: fair delivery between environments ---------- */
+/* The rows reuse the .up-row grid of slide 9: label, a line of deliveries in order, result */
 .order .chain-head + .up-row { margin-top: 22px; }
 .q-track { display: flex; align-items: center; gap: 5px; height: 38px; min-width: 0; }
 .blk {
@@ -818,7 +818,7 @@ pre.code code {
 .fair-set dt, .fair-set dd { margin: 0; }
 .fair-set b { color: var(--fg); font-weight: 600; margin-right: 4px; }
 
-/* ---------- Slide 9: events in the dashboard ---------- */
+/* ---------- Slide 10: events in the dashboard ---------- */
 .shot { margin: 0; }
 .shot-frame { position: relative; overflow: hidden; border: 1px solid var(--line-hi); border-radius: 14px; box-shadow: var(--shadow); }
 .shot-frame img { display: block; width: 100%; height: auto; }
@@ -832,7 +832,7 @@ pre.code code {
 .shot-tasks figcaption { margin: 0; font-size: 19px; }
 .shot-events { margin-top: 20px; }
 
-/* ---------- Slide 6: rate limit per event name ---------- */
+/* ---------- Slide 7: rate limit per event name ---------- */
 .ec-list { margin: 12px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; font-size: 15.5px; line-height: 1.38; color: var(--muted); }
 .ec-list b { color: var(--fg); font-weight: 600; }
 /* Hop numbers of a loop, one circle per event: from a task they climb to 10, through a backend they stay at 0 */
@@ -852,7 +852,7 @@ pre.code code {
 .rl-axis .end { right: 0; }
 .rl-chip { display: inline-flex; align-items: center; gap: 7px; padding: 5px 10px; border-radius: 999px; font: 600 12.5px/1 var(--font-mono); color: var(--warn); background: var(--warn-soft); }
 .rl-chip::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-/* Slide 6, top row: the loop in code next to the two hop counts */
+/* Slide 7, top row: the loop in code next to the two hop counts */
 .rl9-grid { margin-top: 20px; display: grid; grid-template-columns: 760px minmax(0, 1fr); gap: 24px; }
 .rl9-code pre.code { margin-top: 14px; }
 .rl9-code pre.code code { font-size: 14px; }
@@ -864,7 +864,7 @@ pre.code code {
 .hp-mini .hp { width: 24px; height: 24px; border-width: 1.5px; font-size: 11px; }
 .hp-mini .hp-sep { width: 8px; }
 .hp-row .up-res { padding-bottom: 4px; }
-/* Slide 6, last step: what this limit adds next to the API rate limit and the fair queue */
+/* Slide 7, last step: what this limit adds next to the API rate limit and the fair queue */
 .rl9-grid .hp-rows { margin-bottom: 14px; }
 .rl9-note { display: grid; gap: 6px; border-top: 1px solid var(--line); }
 .rl9-note p { margin: 0; }
@@ -970,14 +970,79 @@ pre.code code {
 .cm-name i { font-style: normal; color: var(--faint); }
 .cm-cols .cm-note { display: block; margin-top: 3px; font-size: 15.5px; line-height: 1.3; color: var(--muted); }
 
-/* ---------- Slide 10: what to do next ---------- */
+/* ---------- Slide 4: the data model ---------- */
+/* An ER diagram with examples. Boxes have fixed places and widths, and rows are 20px high, so the
+   links in the SVG on top meet the right rows. Moving a box or a row means moving its links too.
+   Under the subscription and definition boxes: a real row of each. Under TaskRun: the query that
+   finds the runs of one event */
+.er { position: relative; margin-top: 20px; height: 652px; }
+.er-box { position: absolute; border: 1px solid var(--line-hi); border-radius: 10px; background: var(--code-bg); overflow: hidden; }
+.er-new { border-color: color-mix(in srgb, var(--flow) 50%, var(--line-hi)); box-shadow: 0 0 0 3px var(--flow-soft); }
+.er-old { border-style: dashed; background: transparent; }
+.er-head { height: 34px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 12px; border-bottom: 1px solid var(--line-hi); font: 700 16px/1 var(--font-display); }
+.er-new .er-head { background: color-mix(in srgb, var(--flow) 9%, transparent); }
+.er-old .er-head { color: var(--muted); border-bottom-style: dashed; }
+.er-tag { font: 600 10.5px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+.er-new .er-tag { color: var(--flow); }
+.er-row { height: 20px; display: flex; align-items: center; gap: 8px; padding: 0 10px 0 8px; font: 13px/20px var(--font-mono); white-space: nowrap; }
+.er-row.g { box-shadow: inset 0 1px 0 var(--line); }
+.er-row .k { flex: none; width: 22px; font: 700 9.5px/1 var(--font-display); letter-spacing: 0.06em; color: var(--faint); }
+.er-row .k.pk { color: var(--warn); }
+.er-row .n { flex: none; color: var(--fg); }
+.er-row .c { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; font: 13px/20px var(--font-body); color: var(--faint); }
+.er-row .t { flex: none; font-size: 12px; color: var(--muted); }
+.er-row .t.v { padding: 1px 6px; border-radius: 4px; background: var(--flow-soft); color: var(--flow); font-weight: 600; line-height: 16px; }
+.er-row.j { background: color-mix(in srgb, var(--accent) 11%, transparent); }
+.er-row.j .n { color: var(--accent); font-weight: 600; }
+.er-row.s .n { padding-left: 14px; color: var(--muted); }
+.er-row.s .n::before { content: "."; color: var(--faint); }
+.er-foot { display: grid; padding: 7px 10px 8px; border-top: 1px dashed var(--line-hi); font: 11.5px/16px var(--font-mono); color: var(--muted); white-space: nowrap; }
+.er-foot b { display: inline-block; width: 44px; font: 600 9.5px/1 var(--font-display); letter-spacing: 0.08em; text-transform: uppercase; color: var(--faint); }
+.er-links { position: absolute; left: 0; top: 0; overflow: visible; pointer-events: none; }
+.er-l { fill: none; stroke: var(--accent); stroke-width: 1.6; stroke-linejoin: round; }
+.er-o { fill: var(--bg); stroke: var(--accent); stroke-width: 1.6; }
+.er-lt { font: 500 12px var(--font-mono); fill: var(--muted); }
+/* Example rows and the join query: cards, so they read apart from the table boxes */
+.er-card { position: absolute; padding: 0 12px 10px; border: 1px solid var(--line-hi); border-radius: 10px; background: linear-gradient(180deg, var(--surface-hi), var(--surface)); box-shadow: var(--shadow); }
+.er-card-head { height: 30px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font: 600 10.5px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.er-card-head code { font: 500 12px/1 var(--font-mono); letter-spacing: 0; text-transform: none; color: var(--faint); }
+.er-join pre.code { padding: 8px 10px; }
+.er-join pre.code code { font-size: 12px; line-height: 18px; }
+.er-mark { display: inline-block; min-width: calc(100% + 20px); margin: 0 -10px; padding: 0 10px; background: var(--accent-soft); box-shadow: inset 3px 0 0 var(--accent); }
+.er-res { margin-top: 8px; border: 1px solid var(--line); border-radius: 8px; background: var(--code-bg); overflow: hidden; }
+.er-res table { width: 100%; border-collapse: collapse; font: 11.5px/1 var(--font-mono); }
+.er-res th { height: 22px; padding: 0 8px; text-align: left; font: 600 9.5px/1 var(--font-display); letter-spacing: 0.1em; text-transform: uppercase; color: var(--faint); }
+.er-res td { height: 24px; padding: 0 8px; border-top: 1px solid var(--line); color: var(--fg); white-space: nowrap; }
+.er-note { margin: 8px 0 0; font-size: 13px; line-height: 18px; color: var(--muted); }
+.er-note code { font: 12px var(--font-mono); color: var(--fg); }
+/* Example rows: one real row per table, column names on top, like a query result */
+.er-rows { padding: 4px 12px 12px; }
+.er-rows-head { height: 30px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font: 13px/1 var(--font-body); color: var(--muted); }
+.er-rows-head b { margin-right: 8px; font: 700 15px/1 var(--font-display); color: var(--fg); }
+.er-rows-head code { font: 500 12.5px/1 var(--font-mono); color: var(--faint); }
+.er-rows .er-res { margin-top: 0; }
+.er-rows .er-res + .er-rows-head { margin-top: 6px; }
+.er-rows table { font: 14px/1 var(--font-mono); }
+.er-rows th { height: 26px; padding: 0 12px; font: 12px/1 var(--font-mono); letter-spacing: 0; text-transform: none; color: var(--muted); }
+.er-rows td { height: 32px; padding: 0 12px; }
+.er-rows .j { color: var(--accent); }
+.er-rows td.j { font-weight: 600; }
+.er-legend { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: center; gap: 26px; font-size: 15px; color: var(--muted); white-space: nowrap; }
+.er-legend span { display: inline-flex; align-items: center; gap: 9px; }
+.er-legend svg { overflow: visible; }
+.er-sw { display: inline-block; width: 24px; height: 15px; border-radius: 4px; border: 1px solid var(--line-hi); }
+.er-sw-new { border-color: color-mix(in srgb, var(--flow) 50%, var(--line-hi)); background: color-mix(in srgb, var(--flow) 9%, transparent); }
+.er-sw-old { border-style: dashed; }
+.er-legend .er-legend-note { margin-left: auto; color: var(--faint); }
+
+/* ---------- Slide 11: what to do next ---------- */
 .next-grid { margin-top: 28px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
 .next-card .card-head h2 { font-size: 25px; }
 .next-list { margin: 24px 0 4px; padding: 0; list-style: none; display: grid; gap: 28px; }
 .next-t { display: block; font: 600 20px/1.3 var(--font-body); color: var(--fg); }
 .next-d { display: block; margin-top: 6px; font-size: 17px; line-height: 1.4; color: var(--muted); }
 
-/* ---------- Slide 11: ideas and extensions ---------- */
+/* ---------- Slide 12: ideas and extensions ---------- */
 .idea-hero { margin-top: 24px; display: grid; grid-template-columns: minmax(0, 1fr) 682px; gap: 28px; align-items: center; padding: 20px 22px; }
 .idea-hero .card-head h2 { font-size: 25px; }
 .idea-hero .card-desc { margin-bottom: 4px; }
@@ -1383,9 +1448,153 @@ await orderCreated.publish(order);
     </section>
   </section>
 
-  <!-- ===================== Slide 4: fair delivery between environments ===================== -->
+  <!-- ===================== Slide 4: the data model ===================== -->
+  <section class="slide" aria-roledescription="slide" aria-label="The data model">
+    <div class="kicker"><span class="num">04</span><span class="rule"></span><span>The data model</span></div>
+    <h1>Three new tables, <span class="hl">no foreign keys.</span></h1>
+    <p class="lede">Rows keep their own environment and project ids, like <code>Session</code>, so event lists can move to ClickHouse later.</p>
+
+    <div class="er" role="group" aria-label="Entity relationship diagram of the event tables, with example rows">
+      <div class="er-box er-old" style="left:360px;top:0px;width:290px">
+        <div class="er-head"><span>TaskIdentifier</span><span class="er-tag">existing</span></div>
+        <div class="er-row j"><span class="k "></span><span class="n">slug</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">currentTriggerSource</span><span class="c"></span><span class="t v">EVENT</span></div>
+      </div>
+      <div class="er-box er-new" style="left:0px;top:60px;width:300px">
+        <div class="er-head"><span>EventSubscription</span><span class="er-tag">new table</span></div>
+        <div class="er-row"><span class="k pk">PK</span><span class="n">id</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k uq">UQ</span><span class="n">friendlyId</span><span class="c">evsub_…</span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">type</span><span class="c"></span><span class="t">EventSubscriptionType</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">projectId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">runtimeEnvironmentId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row g j"><span class="k "></span><span class="n">taskIdentifier</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row j"><span class="k "></span><span class="n">eventName</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">filter</span><span class="c">equal values only</span><span class="t">Json?</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">active</span><span class="c"></span><span class="t">Boolean</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">createdAt</span><span class="c"></span><span class="t">DateTime</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">updatedAt</span><span class="c"></span><span class="t">DateTime</span></div>
+        <div class="er-foot">
+          <span><b>unique</b>runtimeEnvironmentId,</span>
+          <span><b></b>taskIdentifier, eventName</span>
+          <span><b>index</b>runtimeEnvironmentId,</span>
+          <span><b></b>eventName, active</span>
+        </div>
+      </div>
+      <div class="er-box er-new" style="left:360px;top:100px;width:290px">
+        <div class="er-head"><span>EventDefinition</span><span class="er-tag">new table</span></div>
+        <div class="er-row"><span class="k pk">PK</span><span class="n">id</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k uq">UQ</span><span class="n">friendlyId</span><span class="c">evdef_…</span><span class="t">String</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">projectId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">runtimeEnvironmentId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row g j"><span class="k "></span><span class="n">name</span><span class="c">order.created</span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">description</span><span class="c"></span><span class="t">String?</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">jsonSchema</span><span class="c">payload schema</span><span class="t">Json?</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">active</span><span class="c"></span><span class="t">Boolean</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">createdAt</span><span class="c"></span><span class="t">DateTime</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">updatedAt</span><span class="c"></span><span class="t">DateTime</span></div>
+        <div class="er-foot">
+          <span><b>unique</b>runtimeEnvironmentId, name</span>
+          <span><b>index</b>projectId</span>
+        </div>
+      </div>
+      <div class="er-box er-new" style="left:712px;top:0px;width:356px">
+        <div class="er-head"><span>Event</span><span class="er-tag">new table</span></div>
+        <div class="er-row"><span class="k pk">PK</span><span class="n">id</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row j"><span class="k uq">UQ</span><span class="n">friendlyId</span><span class="c">evt_…</span><span class="t">String</span></div>
+        <div class="er-row g j"><span class="k "></span><span class="n">sourceRunId</span><span class="c">the run that published it</span><span class="t">String?</span></div>
+        <div class="er-row j"><span class="k "></span><span class="n">rootEventId</span><span class="c">first event of the chain</span><span class="t">String?</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">hop</span><span class="c">events before it in the chain</span><span class="t">Int</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">organizationId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">projectId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">runtimeEnvironmentId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">environmentType</span><span class="c"></span><span class="t">RuntimeEnvironmentType</span></div>
+        <div class="er-row g j"><span class="k "></span><span class="n">name</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">payload</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">payloadType</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">idempotencyKey</span><span class="c"></span><span class="t">String?</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">idempotencyKeyExpiresAt</span><span class="c"></span><span class="t">DateTime?</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">tags</span><span class="c"></span><span class="t">String[]</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">isTest</span><span class="c">published from the dashboard</span><span class="t">Boolean</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">status</span><span class="c"></span><span class="t">EventStatus</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">matchedCount</span><span class="c"></span><span class="t">Int</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">runCount</span><span class="c"></span><span class="t">Int</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">deliveries</span><span class="c">one entry per subscriber</span><span class="t">Json?</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">error</span><span class="c"></span><span class="t">Json?</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">createdAt</span><span class="c"></span><span class="t">DateTime</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">dispatchedAt</span><span class="c"></span><span class="t">DateTime?</span></div>
+        <div class="er-foot">
+          <span><b>unique</b>runtimeEnvironmentId, name,</span>
+          <span><b></b>idempotencyKey</span>
+          <span><b>index</b>runtimeEnvironmentId, createdAt DESC</span>
+          <span><b>index</b>status, createdAt</span>
+          <span><b>index</b>createdAt WHERE status = &#x27;PENDING&#x27;</span>
+        </div>
+      </div>
+      <div class="er-box er-old" style="left:1118px;top:20px;width:354px">
+        <div class="er-head"><span>TaskRun</span><span class="er-tag">existing</span></div>
+        <div class="er-row j"><span class="k "></span><span class="n">idempotencyKey</span><span class="c">evt_…</span><span class="t">String?</span></div>
+        <div class="er-row j"><span class="k uq">UQ</span><span class="n">friendlyId</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row"><span class="k "></span><span class="n">taskIdentifier</span><span class="c"></span><span class="t">String</span></div>
+        <div class="er-row g"><span class="k "></span><span class="n">annotations</span><span class="c"></span><span class="t">Json?</span></div>
+        <div class="er-row s"><span class="k "></span><span class="n">eventId</span><span class="c"></span></div>
+        <div class="er-row s"><span class="k "></span><span class="n">eventName</span><span class="c"></span></div>
+        <div class="er-row s"><span class="k "></span><span class="n">rootEventId</span><span class="c"></span></div>
+        <div class="er-row s"><span class="k "></span><span class="n">eventHop</span><span class="c"></span></div>
+      </div>
+      <div class="er-card er-rows" style="left:0px;top:414px;width:650px">
+        <div class="er-rows-head"><span><b>EventDefinition</b>example row</span><span>from <code>events.define</code></span></div>
+        <div class="er-res">
+          <table><thead><tr><th class="j">name</th><th>description</th><th>jsonSchema</th></tr></thead><tbody><tr><td class="j">order.created</td><td>A customer placed an order</td><td>{&quot;type&quot;: &quot;object&quot;, …}</td></tr></tbody></table>
+        </div>
+        <div class="er-rows-head"><span><b>EventSubscription</b>example row</span><span>from <code>events.task</code></span></div>
+        <div class="er-res">
+          <table><thead><tr><th class="j">eventName</th><th class="j">taskIdentifier</th><th>filter</th><th>type</th></tr></thead><tbody><tr><td class="j">order.created</td><td class="j">notify-sales-it</td><td>{&quot;country&quot;: &quot;IT&quot;}</td><td>DECLARATIVE</td></tr></tbody></table>
+        </div>
+      </div>
+      <div class="er-card er-join" style="left:1118px;top:234px;width:354px">
+        <div class="er-card-head"><span>The runs of one event</span><code>SQL</code></div>
+        <pre class="code"><code><span class="t-kw">SELECT</span> e<span class="t-pun">.</span><span class="t-prop">"friendlyId"</span> <span class="t-kw">AS</span> event<span class="t-pun">,</span>
+       r<span class="t-pun">.</span><span class="t-prop">"friendlyId"</span> <span class="t-kw">AS</span> run<span class="t-pun">,</span>
+       r<span class="t-pun">.</span><span class="t-prop">"taskIdentifier"</span> <span class="t-kw">AS</span> task
+<span class="t-kw">FROM</span> <span class="t-type">"Event"</span> e
+<span class="er-mark"><span class="t-kw">JOIN</span> <span class="t-type">"TaskRun"</span> r</span>
+<span class="er-mark">  <span class="t-kw">ON</span> r<span class="t-pun">.</span><span class="t-prop">"idempotencyKey"</span> <span class="t-op">=</span> e<span class="t-pun">.</span><span class="t-prop">"friendlyId"</span></span>
+<span class="t-kw">WHERE</span> e<span class="t-pun">.</span><span class="t-prop">"friendlyId"</span> <span class="t-op">=</span>
+      <span class="t-str">'evt_3t2j8ebquzxmatnx19pn1'</span><span class="t-pun">;</span></code></pre>
+        <div class="er-res">
+          <table>
+            <thead><tr><th>event</th><th>run</th><th>task</th></tr></thead>
+            <tbody>
+              <tr><td>evt_3t2j8…</td><td>run_cmvr78xlw…</td><td>send-receipt</td></tr>
+              <tr><td>evt_3t2j8…</td><td>run_cmvr78xnf…</td><td>notify-sales-it</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="er-note">The event's own <code>idempotencyKey</code> is empty: the join uses its id. Its country was IT, so <code>notify-sales-it</code> ran too.</p>
+      </div>
+      <svg class="er-links" width="1472" height="622" viewBox="0 0 1472 622" aria-hidden="true">
+        <path class="er-l" d="M300 225L360 225"/><path class="er-l" d="M300 219L312 225L300 231"/><path class="er-l" d="M350 219V231"/>
+        <path class="er-l" d="M650 225L712 225"/><path class="er-l" d="M658 219V231"/><circle class="er-o" cx="667" cy="225" r="4"/><path class="er-l" d="M712 219L700 225L712 231"/>
+        <path class="er-l" d="M300 205L330 205L330 45L360 45"/><path class="er-l" d="M300 199L312 205L300 211"/><path class="er-l" d="M350 39V51"/>
+        <path class="er-l" d="M1068 65L1118 65"/><path class="er-l" d="M1078 59V71"/><path class="er-l" d="M1118 59L1106 65L1118 71"/>
+        <path class="er-l" d="M1068 85L1118 85"/><path class="er-l" d="M1068 79L1080 85L1068 91"/><path class="er-l" d="M1110 79V91"/><circle class="er-o" cx="1101" cy="85" r="4"/>
+        <path class="er-l" d="M712 105L686 105L686 65L712 65"/><path class="er-l" d="M712 99L700 105L712 111"/><path class="er-l" d="M702 59V71"/>
+        <text class="er-lt" x="680" y="85" text-anchor="end" dominant-baseline="central">chain</text>
+      </svg>
+      <div class="er-legend">
+        <span><i class="er-sw er-sw-new"></i>New table</span>
+        <span><i class="er-sw er-sw-old"></i>Existing table, only the columns used</span>
+        <span><svg width="34" height="14" aria-hidden="true"><path class="er-l" d="M0 7H34M24 1V13"/></svg>one</span>
+        <span><svg width="34" height="14" aria-hidden="true"><path class="er-l" d="M0 7H34M26 1V13"/><circle class="er-o" cx="17" cy="7" r="4"/></svg>zero or one</span>
+        <span><svg width="34" height="14" aria-hidden="true"><path class="er-l" d="M0 7H34M34 1L22 7L34 13"/></svg>many</span>
+        <span class="er-legend-note">Every line is a join in code, inside one environment. None is a foreign key.</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== Slide 5: fair delivery between environments ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="Fair delivery between environments">
-    <div class="kicker"><span class="num">04</span><span class="rule"></span><span>Fair delivery between environments</span></div>
+    <div class="kicker"><span class="num">05</span><span class="rule"></span><span>Fair delivery between environments</span></div>
     <h1>Every environment <span class="hl">gets its turn.</span></h1>
     <p class="lede">A burst in one environment used to make the others wait. Now environments take turns, and none can fill every worker.</p>
 
@@ -1437,9 +1646,9 @@ await orderCreated.publish(order);
     <p class="fair-foot" data-step="2"><b>✓ Tested</b> on Redis containers: the 5 tests in <code>fanOutQueue.test.ts</code> pass (burst, cap, queued once, retries, retry delay).</p>
   </section>
 
-  <!-- ===================== Slide 5: infinite loops and the hop limit ===================== -->
+  <!-- ===================== Slide 6: infinite loops and the hop limit ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="Infinite loops">
-    <div class="kicker"><span class="num">05</span><span class="rule"></span><span>Infinite loops</span></div>
+    <div class="kicker"><span class="num">06</span><span class="rule"></span><span>Infinite loops</span></div>
     <h1>Every loop stops <span class="hl">at hop 10.</span></h1>
     <p class="lede">A task that publishes the event it listens to would start runs forever. So every event counts how many events led to it.</p>
 
@@ -1488,9 +1697,9 @@ export const auditOrder = events.task({
     </section>
   </section>
 
-  <!-- ===================== Slide 6: rate limit per event name ===================== -->
+  <!-- ===================== Slide 7: rate limit per event name ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="Rate limit per event name">
-    <div class="kicker"><span class="num">06</span><span class="rule"></span><span>Rate limit per event name</span></div>
+    <div class="kicker"><span class="num">07</span><span class="rule"></span><span>Rate limit per event name</span></div>
     <h1>A loop through your backend <span class="hl">hits a limit.</span></h1>
     <p class="lede">The hop limit can't see a loop through your backend. This rate limit doesn't stop it either: it limits the damage to one event name.</p>
 
@@ -1554,9 +1763,9 @@ await events.publish&lt;typeof orderUpdated&gt;("order.updated", { orderId });
     <p class="fair-foot" data-step="2"><b>✓ Tested</b>: the 3 new tests in <code>publishEvent.test.ts</code> pass. With a limit of 5, 8 events give 5 delivered, 3 rate limited and one alert; other names and environments are not limited.</p>
   </section>
 
-  <!-- ===================== Slide 7: cap subscribers per event, chunk delivery later ===================== -->
+  <!-- ===================== Slide 8: cap subscribers per event, chunk delivery later ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="Subscribers per event">
-    <div class="kicker"><span class="num">07</span><span class="rule"></span><span>Subscribers per event</span></div>
+    <div class="kicker"><span class="num">08</span><span class="rule"></span><span>Subscribers per event</span></div>
     <h1>100 subscribers per event, <span class="hl">for now.</span></h1>
     <p class="lede">One job delivers an event to all its subscribers, one after another, and must finish within a 60-second lease.</p>
 
@@ -1625,9 +1834,9 @@ if (count > MAX_SUBSCRIBERS_PER_EVENT) {
     </div>
   </section>
 
-  <!-- ===================== Slide 8: cap event payloads, share one envelope later ===================== -->
+  <!-- ===================== Slide 9: cap event payloads, share one envelope later ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="Event payload size">
-    <div class="kicker"><span class="num">08</span><span class="rule"></span><span>Event payload size</span></div>
+    <div class="kicker"><span class="num">09</span><span class="rule"></span><span>Event payload size</span></div>
     <h1>Payloads up to 256 KB, <span class="hl">for now.</span></h1>
     <p class="lede">Every run gets its own copy of the payload. Past 512 KB, each copy is uploaded to the object store.</p>
 
@@ -1695,9 +1904,9 @@ if (payloadSize > maxPayloadBytes) {
     </div>
   </section>
 
-  <!-- ===================== Slide 9: events in the dashboard ===================== -->
+  <!-- ===================== Slide 10: events in the dashboard ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="Events in the dashboard">
-    <div class="kicker"><span class="num">09</span><span class="rule"></span><span>Events in the dashboard</span></div>
+    <div class="kicker"><span class="num">10</span><span class="rule"></span><span>Events in the dashboard</span></div>
     <h1>Now you can see <span class="hl">which tasks events trigger.</span></h1>
     <p class="lede">The Tasks page marks event tasks with an orange bolt. The Events page lists each event and the runs it started.</p>
 
@@ -1718,9 +1927,9 @@ if (payloadSize > maxPayloadBytes) {
     </figure>
   </section>
 
-  <!-- ===================== Slide 10: what to do next ===================== -->
+  <!-- ===================== Slide 11: what to do next ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="What to do next">
-    <div class="kicker"><span class="num">10</span><span class="rule"></span><span>What to do next</span></div>
+    <div class="kicker"><span class="num">11</span><span class="rule"></span><span>What to do next</span></div>
     <h1>Ten things <span class="hl">to do next.</span></h1>
     <p class="lede">None of them is built yet.</p>
 
@@ -1755,9 +1964,9 @@ if (payloadSize > maxPayloadBytes) {
     </div>
   </section>
 
-  <!-- ===================== Slide 11: ideas and extensions ===================== -->
+  <!-- ===================== Slide 12: ideas and extensions ===================== -->
   <section class="slide" aria-roledescription="slide" aria-label="Ideas and extensions">
-    <div class="kicker"><span class="num">11</span><span class="rule"></span><span>Ideas and extensions</span></div>
+    <div class="kicker"><span class="num">12</span><span class="rule"></span><span>Ideas and extensions</span></div>
     <h1>Ideas to <span class="hl">extend events.</span></h1>
     <p class="lede">Not planned yet. The code lines sketch how each one could look.</p>
 
